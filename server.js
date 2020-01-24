@@ -28,4 +28,4 @@ const Routes = require('./src/routes')
 app.use('/', Routes)
 
 
-app.listen(3301, console.log('http://localhost:3301'))
+app.listen(3302, console.log('http://localhost:3302'))

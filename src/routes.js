@@ -14,6 +14,6 @@ router.get('/new', (req,res)=>{return res.render('home/new')})
 router.post('/createpost', Cliente.NewCliente)
 router.get('/delete/:id', Cliente.EncServ)
 router.get('/update/:id', Cliente.UpdateServ)
-router.get('/updating/:id', Cliente.UpdatePost)
+router.post('/updating/:id', Cliente.UpdatePost)
 
 module.exports = router

@@ -28,12 +28,13 @@ module.exports = {
         return res.render('home/update',{cliente:cliente})
     },
     async UpdatePost(req,res){
-        const product = await Product.findByIdAndUpdate(req.params.id,{
+        const product = await Cliente.findByIdAndUpdate(req.params.id,{
             cliente: req.body.cliente,
             carro: req.body.carro,
             valor: req.body.valor,
             observacao: req.body.observacao,
             pagform: req.body.pagform,
         }, {new:true})
+        return res.redirect('/')
     }
 }
