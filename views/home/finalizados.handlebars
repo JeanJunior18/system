@@ -1,0 +1,50 @@
+<div class="row py-4">
+    <div class="col">
+        <h1>Serviços Finalizados</h1>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        {{#each all}}
+        <div class="row mb-3">
+            <div class="col">
+                CLIENTE: {{this.cliente}}
+            </div>
+            <div class="col">
+                CARRO: {{this.carro}}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                VALOR: {{this.valor}} reais
+            </div>
+            <div class="col">
+                ENTRADA: {{this.date}}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-6">
+                PAGO: {{this.pago}}
+            </div>
+            <div class="col">
+                FORMA DE PAGAMENTO: {{this.pagform}}
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+<hr>
+{{/each}}
+
+
+
+<select name="" id="">
+    {{#each all}}
+    <option value="">{{this.carro}}</option>
+    {{/each}}
+</select>
+
+    </div>
+</div>
+    

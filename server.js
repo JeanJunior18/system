@@ -17,6 +17,8 @@ mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUn
 // Models
 // require('./src/models/Products'),
 require('./src/models/Clientes')
+require('./src/models/Encerrados')
+require('./src/models/Carros')
 // Handlebars
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
