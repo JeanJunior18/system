@@ -4,10 +4,10 @@ const Cliente = mongoose.model('Cliente')
 const Terminate = mongoose.model('Encerrados')
 
 module.exports = {
-    async NewCliente(req,res){
+    async NewCliente(req, res) {
         const clientes = {
             cliente: req.body.cliente,
-            contato:req.body.contato,
+            contato: req.body.contato,
             marca: req.body.marca,
             modelo: req.body.modelo,
             observacao: req.body.observacao,
@@ -18,23 +18,23 @@ module.exports = {
         return res.redirect('/')
     },
 
-    async addNewCliente(req,res){
-        const all = await Terminate.find()
-        return res.render('home/new',{all:all})
+    async addNewCliente(req, res) {
+        const all = await Terminate.find().lean()
+        return res.render('home/new', { all: all })
     },
 
-    async ShowCliente(req,res){
-        const clientes = await Cliente.find()
-        return res.render('home/home',{clientes:clientes})
+    async ShowCliente(req, res) {
+        const clientes = await Cliente.find().lean()
+        return res.render('home/home', { clientes: clientes })
     },
 
-    async EncServ(req,res){
+    async EncServ(req, res) {
         const service = await Cliente.findById(req.params.id)
-        
+
         console.log('Serviço encerrado')
         const encerrado = {
             cliente: service.cliente,
-            contato:service.contato,
+            contato: service.contato,
             carro: service.carro,
             valor: service.valor,
             observacao: service.observacao,
@@ -45,19 +45,19 @@ module.exports = {
         return res.redirect('/')
     },
 
-    async UpdateServ(req,res){
+    async UpdateServ(req, res) {
         const cliente = await Cliente.findById(req.params.id)
-        return res.render('home/update',{cliente:cliente})
+        return res.render('home/update', { cliente: cliente })
     },
 
-    async UpdatePost(req,res){
-        const product = await Cliente.findByIdAndUpdate(req.params.id,{
+    async UpdatePost(req, res) {
+        const product = await Cliente.findByIdAndUpdate(req.params.id, {
             cliente: req.body.cliente,
             carro: req.body.carro,
             valor: req.body.valor,
             observacao: req.body.observacao,
             pagform: req.body.pagform,
-        }, {new:true})
+        }, { new: true })
         return res.redirect('/')
     }
 
